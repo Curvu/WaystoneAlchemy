@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EED0427D-D8EB-4EBC-9F6F-4AE49A83963E}|WaystoneAlchemy.csproj|c:\\users\\gabyy\\desktop\\exilecore2-6\\plugins\\source\\waystonealchemy\\waystonealchemy\\waystonealchemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EED0427D-D8EB-4EBC-9F6F-4AE49A83963E}|WaystoneAlchemy.csproj|solutionrelative:waystonealchemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WaystoneAlchemy.cs",
+              "DocumentMoniker": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.cs",
+              "RelativeDocumentMoniker": "WaystoneAlchemy.cs",
+              "ToolTip": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.cs",
+              "RelativeToolTip": "WaystoneAlchemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T22:10:39.591Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
