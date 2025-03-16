@@ -35,29 +35,30 @@ namespace WaystoneAlchemy
 
         public override void Tick()
         {
+            // Check if the emergency stop hotkey is pressed
+            if (EmergencyStopHotkeyPressed())
+            {
+                // If the emergency stop is activated, exit early
+                return;
+            }
             var openInventory = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
-
-            bool inventoryOpen = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
-            bool currentlyPressed = Input.IsKeyDown(Settings.AlchemyHotkey.Value);
-
+            var inventoryOpen = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
+            var currentlyPressed = Input.IsKeyDown(Settings.AlchemyHotkey.Value);
             if (inventoryOpen && currentlyPressed && !_previousKeyState)
             {
                 ProcessAlchemyOnWaystones();
             }
-
             _previousKeyState = currentlyPressed;
-
-
             // Distilled Paranoia logic explicitly added clearly:
-            bool paranoiaPressed = Input.IsKeyDown(Settings.ParanoiaHotkey.Value);
+            var paranoiaPressed = Input.IsKeyDown(Settings.ParanoiaHotkey.Value);
             if (openInventory && paranoiaPressed && !_prevParanoiaHotkeyState && Settings.EnableParanoiaOnRareWaystones && !_shouldStop)
             {
                 ApplyDistilledParanoiaClearly();
             }
             _prevParanoiaHotkeyState = paranoiaPressed;
-
             return;
         }
+
 
         private bool EmergencyStopHotkeyPressed()
         {
@@ -161,6 +162,7 @@ namespace WaystoneAlchemy
 
         private void ProcessAlchemyOnWaystones()
         {
+            _shouldStop = false; // reset before start
             var inventoryItems = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
             var waystones = inventoryItems.Where(x => x.Item.GetComponent<Base>()?.Name.Contains("Waystone") ?? false).ToList();
 
@@ -172,6 +174,7 @@ namespace WaystoneAlchemy
 
             foreach (var waystone in waystones)
                 HandleWaystone(waystone);
+            
         }
 
         // -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -246,6 +249,8 @@ namespace WaystoneAlchemy
 
             Input.SetCursorPos(instillButtonPos); Thread.Sleep(80);
             Input.Click(MouseButtons.Left); Thread.Sleep(100);
+            
+            
         }
 
         private bool CtrlClickResultingWaystoneFromDistillUI()
