@@ -1,0 +1,13 @@
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Temp\Stashie-Kronos\Stashie.deps.json
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Temp\Stashie-Kronos\Stashie.runtimeconfig.json
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Temp\Stashie-Kronos\Stashie.dll
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.csproj.AssemblyReference.cache
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.AssemblyInfoInputs.cache
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.AssemblyInfo.cs
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.csproj.CoreCompileInputs.cache
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.csproj.Up2Date
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.dll
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\refint\Stashie.dll
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\Stashie.genruntimeconfig.cache
+C:\Users\Gabyy\Downloads\ExileCore2-6\ExileCore2-6\Plugins\Source\Stashie-Kronos\obj\Debug\ref\Stashie.dll
