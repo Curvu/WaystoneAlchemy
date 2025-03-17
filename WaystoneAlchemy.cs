@@ -19,7 +19,7 @@ namespace WaystoneAlchemy
 {
     public class WaystoneAlchemyPlugin : BaseSettingsPlugin<WaystoneAlchemySettings>
     {
-        private volatile bool _shouldStop = false;
+        private bool _shouldStop = false;
         private const Keys ActivationKey = Keys.F2;
         private bool _previousKeyState;
         private bool _prevParanoiaHotkey;
@@ -162,7 +162,7 @@ namespace WaystoneAlchemy
 
         private void ProcessAlchemyOnWaystones()
         {
-            _shouldStop = false; // reset before start
+            
             var inventoryItems = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
             var waystones = inventoryItems.Where(x => x.Item.GetComponent<Base>()?.Name.Contains("Waystone") ?? false).ToList();
 
@@ -182,7 +182,7 @@ namespace WaystoneAlchemy
 
         private void ApplyDistilledParanoiaClearly()
         {
-            _shouldStop = false; // reset before start
+            
             var inventory = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory];
             var items = inventory.VisibleInventoryItems;
 
@@ -253,7 +253,7 @@ namespace WaystoneAlchemy
             
         }
 
-        private bool CtrlClickResultingWaystoneFromDistillUI()
+        private void CtrlClickResultingWaystoneFromDistillUI()
         {
 
             // CAREFUL: adjust these explicitly to resulting Waystone position within the UI:
@@ -263,8 +263,6 @@ namespace WaystoneAlchemy
             Input.SetCursorPos(uiWaystonePos); Thread.Sleep(80);
             Input.Click(MouseButtons.Left); Thread.Sleep(80);
             Input.KeyUp(Keys.ControlKey); Thread.Sleep(60);
-
-            return EmergencyStopHotkeyPressed();
         }
 
 
