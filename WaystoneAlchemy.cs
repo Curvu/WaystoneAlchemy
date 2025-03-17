@@ -25,6 +25,9 @@ namespace WaystoneAlchemy
         private bool _prevParanoiaHotkey;
         private bool _prevParanoiaHotkeyState;
         private bool _previousAlchemyHotkey;
+        private bool _prevCorruptHotkey;
+        private bool _prevCorruptHotkeyState;
+
 
         public override bool Initialise()
         {
@@ -57,6 +60,15 @@ namespace WaystoneAlchemy
                 ApplyDistilledParanoiaClearly();
             }
             _prevParanoiaHotkeyState = paranoiaPressed;
+
+            var corruptPressed = Input.IsKeyDown(Settings.CorruptHotkey.Value);
+            if (inventoryOpen && corruptPressed && !_previousKeyState && Settings.CorruptRareWaystone)
+            {
+                CorruptWaystones();
+            }
+
+            _prevCorruptHotkeyState = corruptPressed;
+
             return;
         }
 
@@ -141,9 +153,9 @@ namespace WaystoneAlchemy
                     break;
 
                 case ItemRarity.Magic:
-                    if (!Settings.UseRegalOnMagicWaystones)
+                    if (!Settings.UseRegalOnMagicWaystones) 
                         break;
-
+                    
                     if (!mods.Identified)
                     {
                         if (!IdentifyItem(waystone))
@@ -264,6 +276,31 @@ namespace WaystoneAlchemy
             Input.SetCursorPos(uiWaystonePos); Thread.Sleep(80);
             Input.Click(MouseButtons.Left); Thread.Sleep(80);
             Input.KeyUp(Keys.ControlKey); Thread.Sleep(60);
+        }
+
+
+        // Corrupting Waystones
+
+        private void CorruptWaystones()
+        {
+            var inventoryItems = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
+            var waystones = inventoryItems.Where(x => x.Item.GetComponent<Base>()?.Name.Contains("Waystone") ?? false).ToList();
+            if (!waystones.Any())
+            {
+                DebugWindow.LogMsg("No Waystones found in inventory.", 2, Color.Yellow);
+                return;
+            }
+            var corruptionOrb = GetCurrencyItem("CurrencyCorrupt");
+            if (corruptionOrb == null)
+            {
+                DebugWindow.LogMsg("No Corruption Orb found!", 2, Color.Red);
+                return;
+            }
+            foreach (var waystone in waystones)
+            {
+                UseCurrencyOnItem(corruptionOrb, waystone);
+                Thread.Sleep(250); // Adjust delay as needed
+            }
         }
 
 
