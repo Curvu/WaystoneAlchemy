@@ -51,6 +51,12 @@ namespace WaystoneAlchemy
             if (inventoryOpen && currentlyPressed && !_previousKeyState)
             {
                 ProcessAlchemyOnWaystones();
+
+                if (Settings.ApplyExaltedOrbsToRareWaystone)
+                {
+                    ApplyExaltedOrbsToRareWaystone();
+                }
+                // return;
             }
             _previousKeyState = currentlyPressed;
             // Distilled Paranoia logic explicitly added clearly:
@@ -300,6 +306,45 @@ namespace WaystoneAlchemy
             {
                 UseCurrencyOnItem(corruptionOrb, waystone);
                 Thread.Sleep(250); // Adjust delay as needed
+            }
+        }
+
+        private void ApplyExaltedOrbsToRareWaystone()
+        {
+            if (!Settings.ApplyExaltedOrbsToRareWaystone) // Ensure the toggle is enabled
+                return;
+            var inventoryItems = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
+            var rareWaystones = inventoryItems.Where(x =>
+                x.Item.GetComponent<Base>()?.Name.Contains("Waystone") == true &&
+                x.Item.GetComponent<Mods>()?.ItemRarity == ItemRarity.Rare).ToList();
+            if (!rareWaystones.Any())
+            {
+                DebugWindow.LogMsg("No rare Waystones found in inventory.", 2, Color.Yellow);
+                return;
+            }
+            var exaltedOrb = GetCurrencyItem("CurrencyAddModToRare");
+            if (exaltedOrb == null || exaltedOrb.Item.GetComponent<Stack>().Size < 3)
+            {
+                DebugWindow.LogMsg("Not enough Exalted Orbs found!", 2, Color.Red);
+                return;
+            }
+            foreach (var waystone in rareWaystones)
+            {
+                var mods = waystone.Item.GetComponent<Mods>();
+                if (mods != null && !mods.Identified) // Check if the Waystone is identified
+                {
+                    if (!IdentifyItem(waystone)) // Attempt to identify the Waystone
+                    {
+                        DebugWindow.LogMsg("Failed to identify Waystone.", 2, Color.Red);
+                        continue; // Skip this Waystone if identification fails
+                    }
+                    Thread.Sleep(250); // Add a small delay after identification
+                }
+                for (int i = 0; i < 3; i++) // Apply 3 Exalted Orbs
+                {
+                    UseCurrencyOnItem(exaltedOrb, waystone);
+                    Thread.Sleep(250); // Adjust delay as needed
+                }
             }
         }
 

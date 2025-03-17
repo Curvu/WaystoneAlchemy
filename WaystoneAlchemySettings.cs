@@ -12,6 +12,9 @@ namespace WaystoneAlchemy
         [Menu("Use Regal on Magic Waystones")]
         public ToggleNode UseRegalOnMagicWaystones { get; set; } = new ToggleNode(false);
 
+        [Menu("Use Exalted on Rare Waystones")]
+        public ToggleNode ApplyExaltedOrbsToRareWaystone { get; set; } = new ToggleNode(false);
+
         [Menu("Corrupt Rare Waystones")]
         public ToggleNode CorruptRareWaystone { get; set; } = new ToggleNode(false);
 
