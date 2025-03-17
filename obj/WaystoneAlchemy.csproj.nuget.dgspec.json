@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.csproj": {}
+    "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.csproj": {
+    "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.csproj",
+        "projectUniqueName": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy.csproj",
         "projectName": "WaystoneAlchemy",
-        "projectPath": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\WaystoneAlchemy.csproj",
+        "projectPath": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy.csproj",
         "packagesPath": "C:\\Users\\Gabyy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\WaystoneAlchemy\\obj\\",
+        "outputPath": "C:\\Users\\Gabyy\\Desktop\\ExileCore2-6\\Plugins\\Source\\WaystoneAlchemy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -83,6 +83,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

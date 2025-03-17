@@ -19,7 +19,7 @@ namespace WaystoneAlchemy
 {
     public class WaystoneAlchemyPlugin : BaseSettingsPlugin<WaystoneAlchemySettings>
     {
-        private bool _shouldStop = false;
+        private volatile bool _shouldStop = false;
         private const Keys ActivationKey = Keys.F2;
         private bool _previousKeyState;
         private bool _prevParanoiaHotkey;
@@ -41,6 +41,7 @@ namespace WaystoneAlchemy
                 // If the emergency stop is activated, exit early
                 return;
             }
+            
             var openInventory = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
             var inventoryOpen = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
             var currentlyPressed = Input.IsKeyDown(Settings.AlchemyHotkey.Value);
@@ -216,7 +217,7 @@ namespace WaystoneAlchemy
             
 
                 ClickInstillButton(); Thread.Sleep(1000);
-              
+
 
                 CtrlClickResultingWaystoneFromDistillUI(); Thread.Sleep(500);
             }
