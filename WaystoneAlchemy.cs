@@ -45,10 +45,9 @@ namespace WaystoneAlchemy
                 return;
             }
             
-            var openInventory = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
-            var inventoryOpen = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
+            var isInventoryOpen = GameController.IngameState?.IngameUi.InventoryPanel.IsVisible ?? false;
             var currentlyPressed = Input.IsKeyDown(Settings.AlchemyHotkey.Value);
-            if (inventoryOpen && currentlyPressed && !_previousKeyState)
+            if (isInventoryOpen && currentlyPressed && !_previousKeyState)
             {
                 ProcessAlchemyOnWaystones();
 
@@ -61,14 +60,14 @@ namespace WaystoneAlchemy
             _previousKeyState = currentlyPressed;
             // Distilled Paranoia logic explicitly added clearly:
             var paranoiaPressed = Input.IsKeyDown(Settings.ParanoiaHotkey.Value);
-            if (openInventory && paranoiaPressed && !_prevParanoiaHotkeyState && Settings.EnableParanoiaOnRareWaystones && !_shouldStop)
+            if (isInventoryOpen && paranoiaPressed && !_prevParanoiaHotkeyState && Settings.EnableParanoiaOnRareWaystones && !_shouldStop)
             {
                 ApplyDistilledParanoiaClearly();
             }
             _prevParanoiaHotkeyState = paranoiaPressed;
 
             var corruptPressed = Input.IsKeyDown(Settings.CorruptHotkey.Value);
-            if (inventoryOpen && corruptPressed && !_previousKeyState && Settings.CorruptRareWaystone)
+            if (isInventoryOpen && corruptPressed && !_previousKeyState && Settings.CorruptRareWaystone)
             {
                 CorruptWaystones();
             }
