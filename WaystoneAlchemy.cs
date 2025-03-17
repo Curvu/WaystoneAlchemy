@@ -92,7 +92,9 @@ namespace WaystoneAlchemy
         private NormalInventoryItem GetCurrencyItem(string currencyPath)
         {
             var inventoryItems = GameController.IngameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
-            return inventoryItems.FirstOrDefault(x => x.Item.Path.Contains(currencyPath) && x.Item.HasComponent<Stack>() && x.Item.GetComponent<Stack>().Size > 0);
+            return inventoryItems
+                .Where(x => x.Item.Path.Contains(currencyPath) && x.Item.HasComponent<Stack>())
+                .FirstOrDefault(x => x.Item.GetComponent<Stack>().Size > 0);
         }
 
         private bool UseCurrencyOnItem(NormalInventoryItem currency, NormalInventoryItem target)
