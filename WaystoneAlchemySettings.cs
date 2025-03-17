@@ -31,6 +31,6 @@ namespace WaystoneAlchemy
         public HotkeyNode CorruptHotkey { get; set; } = new HotkeyNode(Keys.F5);
 
         [Menu("Emergency Stop Hotkey")]
-        public HotkeyNode EmergencyStopHotkey { get; set; } = new HotkeyNode(Keys.Escape);
+        public HotkeyNode EmergencyStopHotkey { get; set; } = new HotkeyNode(Keys.Pause);
     }
 }
